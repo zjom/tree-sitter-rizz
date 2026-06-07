@@ -8,7 +8,7 @@ quote
 
 (source
   (quote
-    datum: (ident)))
+    datum: (quoted_ident)))
 
 ================================================================================
 quote of list
@@ -20,7 +20,7 @@ quote of list
 
 (source
   (quote
-    datum: (list
+    datum: (quoted_list
       (int)
       (int)
       (int))))
@@ -35,7 +35,7 @@ quasiquote
 
 (source
   (quasiquote
-    datum: (list
+    datum: (quasi_list
       (int)
       (unquote
         datum: (ident))
@@ -55,3 +55,42 @@ nested quasiquote and quote
     datum: (quote
       datum: (unquote
         datum: (ident)))))
+
+================================================================================
+quote propagates to nested data
+================================================================================
+
+'((a b) [c {d: e}])
+
+--------------------------------------------------------------------------------
+
+(source
+  (quote
+    datum: (quoted_list
+      (quoted_list
+        (quoted_ident)
+        (quoted_ident))
+      (quoted_array
+        (quoted_ident)
+        (quoted_map
+          (quoted_map_entry
+            key: (quoted_ident)
+            value: (quoted_ident)))))))
+
+================================================================================
+quasiquote escapes back to code via unquote
+================================================================================
+
+`(a ,(f b) c)
+
+--------------------------------------------------------------------------------
+
+(source
+  (quasiquote
+    datum: (quasi_list
+      (quasi_ident)
+      (unquote
+        datum: (list
+          (ident)
+          (ident)))
+      (quasi_ident))))

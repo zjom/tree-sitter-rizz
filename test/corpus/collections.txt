@@ -81,4 +81,4 @@ map with string key and quoted value
     (map_entry
       key: (string)
       value: (quote
-        datum: (ident)))))
+        datum: (quoted_ident)))))

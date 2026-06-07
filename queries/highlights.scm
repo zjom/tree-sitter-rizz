@@ -35,7 +35,7 @@
   .
   (ident) @keyword
   (#match? @keyword
-    "^(let|let!|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open)$"))
+    "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open)$"))
 
 ;; Prelude macros that behave like control flow (§11.10).
 (list
@@ -44,11 +44,19 @@
   (#match? @keyword.control "^(cond|for|loop|while|else)$"))
 
 ;; Anything else in head position of a list is a function call.
-(list . (ident) @function)
-
-;; Common boolean-ish builtins.
-((ident) @constant.builtin
- (#match? @constant.builtin "^(true|false|nil)$"))
+(list . (ident) @function
+  (#not-match? @function
+    "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else)$"))
 
 ;; Bare identifiers fall back to @variable.
-(ident) @variable
+((ident) @variable
+ (#not-match? @variable
+   "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else)$"))
+
+;; Quoted forms are data, not code. The grammar uses parallel quoted_*/quasi_*
+;; node types inside (quote …) and (quasiquote …), so a single capture per
+;; symbol kind covers data at any depth. Idents inside (unquote …) /
+;; (unquote_splice …) re-enter code mode automatically because those bodies
+;; are parsed under the unquoted $._form.
+(quoted_ident) @string.special.symbol
+(quasi_ident)  @string.special.symbol

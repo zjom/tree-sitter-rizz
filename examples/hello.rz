@@ -23,4 +23,7 @@
 (fn bump () (set! c (+ (deref c) 1)))
 (bump) (bump) (bump)
 
+(let! d 1)
+(deref d)
+
 (greet greeting)

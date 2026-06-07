@@ -6,6 +6,12 @@
  * are atoms (int, float, string, ident), lists, arrays, maps, or reader-macro
  * forms ('X, `X, ,X, ,@X).
  *
+ * Quote contexts: inside (quote …) and (quasiquote …) the form tree uses a
+ * parallel set of rules — quoted_list / quoted_ident / etc. — so highlight
+ * queries can style data differently from code at arbitrary depth. Inside a
+ * quasiquote, (unquote …) and (unquote_splice …) drop their bodies back to
+ * the unquoted $._form so code inside the comma resumes normal highlighting.
+ *
  * Lexical notes that drive a few odd-looking rules:
  *
  *   - Identifier terminators are exactly: whitespace, ( ) [ ] { } ; :
@@ -62,6 +68,41 @@ module.exports = grammar({
       $.ident,
     ),
 
+    // Inside (quote …): everything is data. The ident token is reused but
+    // aliased so it appears as `quoted_ident` in the tree. unquote /
+    // unquote_splice are still accepted (matching the reference parser, which
+    // builds the syntax tree without semantic interpretation) and their
+    // bodies stay in code mode via $._form.
+    _quoted_form: $ => choice(
+      $.string,
+      $.float,
+      $.int,
+      $.quoted_list,
+      $.quoted_array,
+      $.quoted_map,
+      $.quote,
+      $.quasiquote,
+      $.unquote_splice,
+      $.unquote,
+      alias($.ident, $.quoted_ident),
+    ),
+
+    // Inside (quasiquote …): same as quoted, but with quasi_* container types
+    // so a query can tell them apart from a plain quote when that matters.
+    _quasi_form: $ => choice(
+      $.string,
+      $.float,
+      $.int,
+      $.quasi_list,
+      $.quasi_array,
+      $.quasi_map,
+      $.quote,
+      $.quasiquote,
+      $.unquote_splice,
+      $.unquote,
+      alias($.ident, $.quasi_ident),
+    ),
+
     comment: _ => token(seq(';;', /[^\n]*/)),
 
     // Numbers. Float must outrank int so `1.5` is one float token, not int+ident.
@@ -116,10 +157,39 @@ module.exports = grammar({
       field('value', $._form),
     ),
 
+    // Quoted-context container shapes — mirror list/array/map but recurse
+    // into $._quoted_form so the data-styling propagates to any depth.
+    quoted_list: $ => choice(
+      seq('(', repeat($._quoted_form), ')'),
+      seq('(', repeat1($._quoted_form), $.dot, $._quoted_form, ')'),
+    ),
+    quoted_array: $ => seq('[', repeat($._quoted_form), ']'),
+    quoted_map: $ => seq('{', repeat($.quoted_map_entry), '}'),
+    quoted_map_entry: $ => seq(
+      field('key', $._quoted_form),
+      ':',
+      field('value', $._quoted_form),
+    ),
+
+    // Quasiquote-context container shapes — recurse into $._quasi_form.
+    quasi_list: $ => choice(
+      seq('(', repeat($._quasi_form), ')'),
+      seq('(', repeat1($._quasi_form), $.dot, $._quasi_form, ')'),
+    ),
+    quasi_array: $ => seq('[', repeat($._quasi_form), ']'),
+    quasi_map: $ => seq('{', repeat($.quasi_map_entry), '}'),
+    quasi_map_entry: $ => seq(
+      field('key', $._quasi_form),
+      ':',
+      field('value', $._quasi_form),
+    ),
+
     // Reader-macro forms. `,@` must outrank `,` so `,@x` lexes as splice, not
-    // unquote-of-`@x`.
-    quote:          $ => seq("'",  field('datum', $._form)),
-    quasiquote:     $ => seq('`',  field('datum', $._form)),
+    // unquote-of-`@x`. quote/quasiquote bodies live in their respective
+    // form-rule trees; unquote/unquote_splice bodies are always $._form so a
+    // comma inside a backquote re-enters code mode.
+    quote:          $ => seq("'",  field('datum', $._quoted_form)),
+    quasiquote:     $ => seq('`',  field('datum', $._quasi_form)),
     unquote_splice: $ => seq(',@', field('datum', $._form)),
     unquote:        $ => seq(',',  field('datum', $._form)),
   },
