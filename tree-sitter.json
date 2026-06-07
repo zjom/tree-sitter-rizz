@@ -1,0 +1,41 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "rizz",
+      "camelcase": "Rizz",
+      "title": "Rizz",
+      "scope": "source.rizz",
+      "file-types": [
+        "rizz"
+      ],
+      "injection-regex": "^rizz$",
+      "class-name": "TreeSitterRizz"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Rizz grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "zjom",
+        "url": ""
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/zjom/tree-sitter-rizz",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "java": false,
+    "node": false,
+    "python": false,
+    "rust": true,
+    "swift": false,
+    "zig": false
+  }
+}
