@@ -35,14 +35,14 @@
 ;; overlapping captures by taking the last matching pattern.
 ((ident) @variable
  (#not-match? @variable
-   "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else)$"))
+   "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else|doc|show)$"))
 
 ;; Special forms (§5, §10 of the spec) — recognised only in head position.
 (list
   .
   (ident) @keyword
   (#match? @keyword
-    "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open)$"))
+    "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|doc|show)$"))
 
 ;; Prelude macros that behave like control flow (§11.10).
 (list
@@ -53,7 +53,7 @@
 ;; Anything else in head position of a list is a function call.
 (list . (ident) @function
   (#not-match? @function
-    "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else)$"))
+    "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else|doc|show)$"))
 
 ;; Quoted forms are data, not code. The grammar uses parallel quoted_*/quasi_*
 ;; node types inside (quote …) and (quasiquote …), so a single capture per
