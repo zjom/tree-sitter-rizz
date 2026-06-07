@@ -4,6 +4,12 @@
 (let greeting "world")
 
 (fn greet (name)
+  (doc "says hello to name"
+       "params:"
+       "  `name` str"
+       "returns:"
+       "  str"
+       )
   (str-join ["hello" name] " "))
 
 (fn fact (n)
