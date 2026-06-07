@@ -30,6 +30,13 @@
 ":"   @punctuation.delimiter
 (dot) @punctuation.delimiter
 
+;; Bare identifiers fall back to @variable. Listed first so the more specific
+;; head-position captures below override it — tree-sitter highlighters resolve
+;; overlapping captures by taking the last matching pattern.
+((ident) @variable
+ (#not-match? @variable
+   "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else)$"))
+
 ;; Special forms (§5, §10 of the spec) — recognised only in head position.
 (list
   .
@@ -47,11 +54,6 @@
 (list . (ident) @function
   (#not-match? @function
     "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else)$"))
-
-;; Bare identifiers fall back to @variable.
-((ident) @variable
- (#not-match? @variable
-   "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else)$"))
 
 ;; Quoted forms are data, not code. The grammar uses parallel quoted_*/quasi_*
 ;; node types inside (quote …) and (quasiquote …), so a single capture per
