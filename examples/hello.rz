@@ -1,0 +1,26 @@
+;; rizz sample — exercises every surface form so the parser can be
+;; sanity-checked with `tree-sitter parse examples/hello.rz`.
+
+(let greeting "world")
+
+(fn greet (name)
+  (str-join ["hello" name] " "))
+
+(fn fact (n)
+  (if (< n 1) 1
+    (* n (fact (- n 1)))))
+
+(fn log (level . args)
+  (str-join (fmap to-str (cons level args)) " "))
+
+(let nums [1 2 3 -4 0.5 -0.25])
+(let table {"one": 1  "two": 2})
+
+(let q  'foo)
+(let qq `(1 ,(+ 1 1) ,@(range 3 6)))
+
+(let c (ref 0))
+(fn bump () (set! c (+ (deref c) 1)))
+(bump) (bump) (bump)
+
+(greet greeting)

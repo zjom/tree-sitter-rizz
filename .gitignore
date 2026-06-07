@@ -1,0 +1,11 @@
+node_modules/
+target/
+build/
+src/parser.c
+src/tree_sitter/
+src/grammar.json
+src/node-types.json
+*.dylib
+*.so
+*.dll
+*.wasm
