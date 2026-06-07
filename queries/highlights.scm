@@ -55,6 +55,23 @@
   (#not-match? @function
     "^(let|let!|set!|deref|ref|fn|if|do|quote|quasi|unquote|unquote-splice|eval|defmacro|open|cond|for|loop|while|else|doc|show)$"))
 
+;; fn / defmacro parameter lists (§5.2, §10). Shape is
+;; `(fn NAME (PARAMS...) BODY)` — possibly with a dotted-tail rest arg. The
+;; only param that gets mis-highlighted is the first one, because it sits in
+;; head position of the params list and so picks up @function above; the
+;; remaining params already fall back to @variable. Re-capture that first
+;; param as @variable to match its siblings (later patterns win).
+;; The `.` anchors pin the params list to the third child of an fn/defmacro
+;; form so unrelated lists in the body aren't matched. The capture name
+;; `@keyword` is reused on the head ident so `fn` keeps its keyword style.
+(list
+  .
+  (ident) @keyword (#match? @keyword "^(fn|defmacro)$")
+  .
+  (ident)
+  .
+  (list . (ident) @variable))
+
 ;; Quoted forms are data, not code. The grammar uses parallel quoted_*/quasi_*
 ;; node types inside (quote …) and (quasiquote …), so a single capture per
 ;; symbol kind covers data at any depth. Idents inside (unquote …) /
