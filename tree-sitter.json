@@ -36,6 +36,7 @@
     "python": false,
     "rust": true,
     "swift": false,
-    "zig": false
+    "zig": false,
+    "wasm": true
   }
 }

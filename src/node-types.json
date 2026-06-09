@@ -1,0 +1,1083 @@
+[
+  {
+    "type": "array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "quasiquote",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "unquote",
+          "named": true
+        },
+        {
+          "type": "unquote_splice",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "dot",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "quasiquote",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "unquote",
+          "named": true
+        },
+        {
+          "type": "unquote_splice",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "map",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "map_entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "map_entry",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "quasi_array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "quasi_array",
+          "named": true
+        },
+        {
+          "type": "quasi_ident",
+          "named": true
+        },
+        {
+          "type": "quasi_list",
+          "named": true
+        },
+        {
+          "type": "quasi_map",
+          "named": true
+        },
+        {
+          "type": "quasiquote",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "unquote",
+          "named": true
+        },
+        {
+          "type": "unquote_splice",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quasi_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dot",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "quasi_array",
+          "named": true
+        },
+        {
+          "type": "quasi_ident",
+          "named": true
+        },
+        {
+          "type": "quasi_list",
+          "named": true
+        },
+        {
+          "type": "quasi_map",
+          "named": true
+        },
+        {
+          "type": "quasiquote",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "unquote",
+          "named": true
+        },
+        {
+          "type": "unquote_splice",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quasi_map",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "quasi_map_entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quasi_map_entry",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "quasi_array",
+            "named": true
+          },
+          {
+            "type": "quasi_ident",
+            "named": true
+          },
+          {
+            "type": "quasi_list",
+            "named": true
+          },
+          {
+            "type": "quasi_map",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "quasi_array",
+            "named": true
+          },
+          {
+            "type": "quasi_ident",
+            "named": true
+          },
+          {
+            "type": "quasi_list",
+            "named": true
+          },
+          {
+            "type": "quasi_map",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "quasiquote",
+    "named": true,
+    "fields": {
+      "datum": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "quasi_array",
+            "named": true
+          },
+          {
+            "type": "quasi_ident",
+            "named": true
+          },
+          {
+            "type": "quasi_list",
+            "named": true
+          },
+          {
+            "type": "quasi_map",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "quote",
+    "named": true,
+    "fields": {
+      "datum": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "quoted_array",
+            "named": true
+          },
+          {
+            "type": "quoted_ident",
+            "named": true
+          },
+          {
+            "type": "quoted_list",
+            "named": true
+          },
+          {
+            "type": "quoted_map",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "quoted_array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "quasiquote",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "quoted_array",
+          "named": true
+        },
+        {
+          "type": "quoted_ident",
+          "named": true
+        },
+        {
+          "type": "quoted_list",
+          "named": true
+        },
+        {
+          "type": "quoted_map",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "unquote",
+          "named": true
+        },
+        {
+          "type": "unquote_splice",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quoted_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dot",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "quasiquote",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "quoted_array",
+          "named": true
+        },
+        {
+          "type": "quoted_ident",
+          "named": true
+        },
+        {
+          "type": "quoted_list",
+          "named": true
+        },
+        {
+          "type": "quoted_map",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "unquote",
+          "named": true
+        },
+        {
+          "type": "unquote_splice",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quoted_map",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "quoted_map_entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quoted_map_entry",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "quoted_array",
+            "named": true
+          },
+          {
+            "type": "quoted_ident",
+            "named": true
+          },
+          {
+            "type": "quoted_list",
+            "named": true
+          },
+          {
+            "type": "quoted_map",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "quoted_array",
+            "named": true
+          },
+          {
+            "type": "quoted_ident",
+            "named": true
+          },
+          {
+            "type": "quoted_list",
+            "named": true
+          },
+          {
+            "type": "quoted_map",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "source",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "int",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "quasiquote",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "unquote",
+          "named": true
+        },
+        {
+          "type": "unquote_splice",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unquote",
+    "named": true,
+    "fields": {
+      "datum": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "unquote_splice",
+    "named": true,
+    "fields": {
+      "datum": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "int",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "quasiquote",
+            "named": true
+          },
+          {
+            "type": "quote",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "unquote",
+            "named": true
+          },
+          {
+            "type": "unquote_splice",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ",@",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "`",
+    "named": false
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "dot",
+    "named": true
+  },
+  {
+    "type": "escape_sequence",
+    "named": true
+  },
+  {
+    "type": "float",
+    "named": true
+  },
+  {
+    "type": "ident",
+    "named": true
+  },
+  {
+    "type": "int",
+    "named": true
+  },
+  {
+    "type": "quasi_ident",
+    "named": true
+  },
+  {
+    "type": "quoted_ident",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]
